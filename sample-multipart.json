@@ -1,0 +1,58 @@
+{
+  "date": 1763306788352,
+  "headers": {
+    "Accept-Encoding": [
+      "gzip, br"
+    ],
+    "Cdn-Loop": [
+      "cloudflare; subreqs=1"
+    ],
+    "Cf-Connecting-Ip": [
+      "2a06:98c0:3600::103"
+    ],
+    "Cf-Ray": [
+      "99f801bf017c7bc0-ATL"
+    ],
+    "Cf-Visitor": [
+      "{\"scheme\":\"https\"}"
+    ],
+    "Cf-Worker": [
+      "dasagent.org"
+    ],
+    "Content-Length": [
+      "6020"
+    ],
+    "Content-Type": [
+      "multipart/form-data; boundary=afc8e0154fd81eb3cd4dd740cb002a2e"
+    ],
+    "User-Agent": [
+      "owlrelay-webhook-client"
+    ],
+    "X-Forwarded-For": [
+      "2a06:98c0:3600::103, 172.71.31.219"
+    ],
+    "X-Forwarded-Host": [
+      "admin-request-baskets.djic3d.easypanel.host"
+    ],
+    "X-Forwarded-Port": [
+      "443"
+    ],
+    "X-Forwarded-Proto": [
+      "https"
+    ],
+    "X-Forwarded-Server": [
+      "39c0e9edd06f"
+    ],
+    "X-Real-Ip": [
+      "172.71.31.219"
+    ],
+    "X-Signature": [
+      "QkmUZ58EGRxcMGqJzDVjpYvxG1VjaZhAlJgPvrQywT0="
+    ]
+  },
+  "content_length": 6020,
+  "body": "--afc8e0154fd81eb3cd4dd740cb002a2e\r\nContent-Disposition: form-data; name=\"email\"\r\n\r\n{\"headers\":[{\"key\":\"received\",\"value\":\"from mail-yx1-xb12a.google.com (2607:f8b0:4864:20::b12a) by cloudflare-email.net (cloudflare) id 5zOKkrDIlJPN for <abner+sabetudo@dasagent.org>; Sun, 16 Nov 2025 15:26:20 +0000\"},{\"key\":\"arc-seal\",\"value\":\"i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; cv=none; b=FQ0YkbhSkiELa5muBrA9bSJAlUrSdkjkmOOCSzjuli1sV8m22PJ2z/qfSE6esacZOTXJnws2A h02VBij/RokY6IzwBQE9kmvXiBhB1i/g4E67eqXXDO7pZq4QHaMZcaP5fbqbxx3huZSRCAS8XJQ 6g3j9YZ55edrDwVd0Pt0Tvj0WkR086Z1U9jT25rH0bnJ1Ib5DQ9Royx6bMXkM6emvDwS4VsUfCL sEI6FTaBQ4j69xplEC/n4gOgbPK1V7b5GtxkoUXj2OPQ9iYmvTfBanW6szvzTapmJf88oL6b4t9 OhCWxWWcVvDuNKOSTqAqQrYPaR0kwzSR8xXw2t/KKD+Q==;\"},{\"key\":\"arc-message-signature\",\"value\":\"i=1; a=rsa-sha256; s=cf2024-1; d=cloudflare-email.net; c=relaxed/relaxed; h=To:Subject:Date:From:reply-to:cc:resent-date:resent-from:resent-to :resent-cc:in-reply-to:references:list-id:list-help:list-subscribe :list-post:list-owner:list-archive; t=1763306787; x=1763911587; bh=A/+buFH5 ZOnncKpzm8fL14TmJUYnxPJWZE1tdUY3LNY=; b=Wqup4IU5N5QHkn66Pt+C2ts6LBbUWNtBt13 o4uFVdZGvzlWjo9Kc7uXsUu/O9gMVfhu27o1XS3S4HwFZSM+oXONjW2paxHyj2q0bBFALzzMlte w+KBUWe3h9yprDA+6olNA8RmAZmmiA5BViRgnu/bvTbXFgjpE1S4vZYrsatThVHmyfyOoCv/T9s zeofxDU+rZi8HioXO5HQhMimkeBskSiB+qkxRE/ZZ1j8JFwRx5IgLXuMm+6y12L/uU14ESgt3/Q bC+wsKRpo6+KMDffR7h+KVt5shyVxCBc+FX1edzqTtvis5lXd0Pz3Wth/+bao89xCpVqA0ZPDBf R2KzFAQ==;\"},{\"key\":\"arc-authentication-results\",\"value\":\"i=1; mx.cloudflare.net; dkim=pass header.d=h100-com-br.20230601.gappssmtp.com header.s=20230601 header.b=1BzOjAU/; dmarc=none header.from=h100.com.br policy.dmarc=none; spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail-yx1-xb12a.google.com) smtp.helo=mail-yx1-xb12a.google.com; spf=permerror (mx.cloudflare.net: unable to verify SPF record for admin@h100.com.br) smtp.mailfrom=admin@h100.com.br; arc=none smtp.remote-ip=2607:f8b0:4864:20::b12a\"},{\"key\":\"received-spf\",\"value\":\"permerror (mx.cloudflare.net: unable to verify SPF record for admin@h100.com.br) receiver=mx.cloudflare.net; client-ip=2607:f8b0:4864:20::b12a; envelope-from=\\\"admin@h100.com.br\\\"; helo=mail-yx1-xb12a.google.com;\"},{\"key\":\"authentication-results\",\"value\":\"mx.cloudflare.net; dkim=pass header.d=h100-com-br.20230601.gappssmtp.com header.s=20230601 header.b=1BzOjAU/; dmarc=none header.from=h100.com.br policy.dmarc=none; spf=none (mx.cloudflare.net: no SPF records found for postmaster@mail-yx1-xb12a.google.com) smtp.helo=mail-yx1-xb12a.google.com; spf=permerror (mx.cloudflare.net: unable to verify SPF record for admin@h100.com.br) smtp.mailfrom=admin@h100.com.br; arc=none smtp.remote-ip=2607:f8b0:4864:20::b12a\"},{\"key\":\"received\",\"value\":\"by mail-yx1-xb12a.google.com with SMTP id 956f58d0204a3-640b4a05c1cso4214100d50.3 for <abner+sabetudo@dasagent.org>; Sun, 16 Nov 2025 07:26:20 -0800 (PST)\"},{\"key\":\"dkim-signature\",\"value\":\"v=1; a=rsa-sha256; c=relaxed/relaxed; d=h100-com-br.20230601.gappssmtp.com; s=20230601; t=1763306780; x=1763911580; darn=dasagent.org; h=to:subject:message-id:date:from:mime-version:from:to:cc:subject :date:message-id:reply-to; bh=A/+buFH5ZOnncKpzm8fL14TmJUYnxPJWZE1tdUY3LNY=; b=1BzOjAU/9ArBB/Z3w7rha1elUDHPkLKmdlgY7b7ucUFDCMPTWophDHQpnvXtb9lDW5 zM8qokkeAtj3jREtuywgeZfGimKZwkrjCdcsoayceFJ15E5bnFL2dkY1GSoprgcL5XNJ Lu+otjvo+HGayFOp7/KI7FzRsmtjIlfE0Rb/ivu/urJ/lX/wk+otu0haYxAjaZmZlOvo xvoD24DfeZDA8E9SPJGHVnMcrkhUJPFFi0OV1yJcb+eF6MNLB44npsAjzhlgat+VErCP 6mlg40YgZbsjypv+prZaWxiTtFNcj1GcGrC19UxQUzgZCU3AXs/kWFHDJ2Uf+xfEyZmc 3RAQ==\"},{\"key\":\"x-google-dkim-signature\",\"value\":\"v=1; a=rsa-sha256; c=relaxed/relaxed; d=1e100.net; s=20230601; t=1763306780; x=1763911580; h=to:subject:message-id:date:from:mime-version:x-gm-gg :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to; bh=A/+buFH5ZOnncKpzm8fL14TmJUYnxPJWZE1tdUY3LNY=; b=UYDxUiOaQMjnyNN0u+Z38Cq5SC8ir39NegPkvXYmul2GGC4cIy6she0ODORoLq5fcH UXQsrR7EZpKpSrLv02tz9OYJz7u64gGQ50dCX6p0EQvrGzkEJ4rbFGFbV/LsWRh18AaF oSXIZD/d2mzcLAZ7Ly68WcEs1wmDzsgGCOHzg4zfNJNTeq/91VcRauP1UsYBD98xdWuT WXdBcWmj3BK8NchJ39IEfnck7CH5mOmcpVwmCoOABksYp+BM2Wsl2pbAAN1Fw35GAutC D1kqjCGh2W37XdmsWN70rWrMHTce/1Y0Wiuz+Sm3DtazUtmgHPbkP+OtRlX7cgggS6zf C+2A==\"},{\"key\":\"x-gm-message-state\",\"value\":\"AOJu0YyErVWmv84aH+eDvksWVi7UwX2W0mSEuWwz8de892qpInE95eut /k8kzQE0bSOmC0NUnAG8DLZbO6olGtezznavRdyhclzg8REq0nurYNXj05Nj7N+Ar0PELKNM2Eo 2YWqOE8DfHFjFGK1DS7Viqv/U7HfoJB1K9fE0c4URxFzipK8hGqdsZIg0\"},{\"key\":\"x-gm-gg\",\"value\":\"ASbGnctQ+2kqyRNbvXG2ed7hz5iw2qhEGxwA8TyDHx4QUbh3ycCnss2fLJMh2cNV88J TQ/+sTsGQjZBXY8XRw+Z1GNGixoixAU8YrR3iAp/hLTjKwgiWL52MglFS+lA+bDJSKwGO9wnkE6 SNDIJ8TCR7Wy+w+9oWgU6JCn8HxlcU6Go3fmoZHieTKlv+uttko8QLJoCAqqNpHA/Sjztj7f+1P Ez21Dp3VDYUMorWkNJH5W7WBfcz8vr7bKuIwmak4NJBMKfBGGIRpYfrwe7CBPmwxbZ7ieXzOfXT 00ADWARZ1+vt3qv3UQYWStJrxF4=\"},{\"key\":\"x-google-smtp-source\",\"value\":\"AGHT+IHChJKbXhGB3Ahgl39nMA3+hufROiwiTSEp7oe/bZj75Df0YiuGCKwGif5zZ2cn70Tm7n/BqZFqkyp90LS8V2g=\"},{\"key\":\"x-received\",\"value\":\"by 2002:a05:690e:431b:b0:63f:b8d0:7e2c with SMTP id 956f58d0204a3-641e74bfd56mr6215208d50.2.1763306780125; Sun, 16 Nov 2025 07:26:20 -0800 (PST)\"},{\"key\":\"mime-version\",\"value\":\"1.0\"},{\"key\":\"from\",\"value\":\"Admin H100 <admin@h100.com.br>\"},{\"key\":\"date\",\"value\":\"Sun, 16 Nov 2025 12:26:09 -0300\"},{\"key\":\"x-gm-features\",\"value\":\"AWmQ_bn0ah9Lmb1mpjcayGM0MNAMNTQz_Czbf7goxEjD08eHPTXNfrmrQt2X9h4\"},{\"key\":\"message-id\",\"value\":\"<CAFrQ+UpzZHyAKXfFdqdVCh5EKxM4oL2rgsXnr6Pj-iqbSSVgpg@mail.gmail.com>\"},{\"key\":\"subject\",\"value\":\"novo teste\"},{\"key\":\"to\",\"value\":\"abner+sabetudo@dasagent.org\"},{\"key\":\"content-type\",\"value\":\"multipart/alternative; boundary=\\\"000000000000427b4f0643b7da95\\\"\"}],\"from\":{\"address\":\"admin@h100.com.br\",\"name\":\"Admin H100\"},\"to\":[{\"address\":\"abner+sabetudo@dasagent.org\",\"name\":\"\"}],\"subject\":\"novo teste\",\"messageId\":\"<CAFrQ+UpzZHyAKXfFdqdVCh5EKxM4oL2rgsXnr6Pj-iqbSSVgpg@mail.gmail.com>\",\"date\":\"2025-11-16T15:26:09.000Z\",\"html\":\"<div dir=\\\"ltr\\\">enviado</div>\\n\\n\",\"text\":\"enviado\\n\\n\"}\r\n--afc8e0154fd81eb3cd4dd740cb002a2e--",
+  "method": "POST",
+  "path": "/gnjsksj",
+  "query": ""
+}
