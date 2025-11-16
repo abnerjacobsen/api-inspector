@@ -11,6 +11,9 @@ from collections import defaultdict
 import asyncio
 import re
 from pathlib import Path
+import io
+from python_multipart import MultipartParser
+from python_multipart.multipart import parse_options_header
 
 # Configure logging
 logging.basicConfig(
@@ -217,7 +220,68 @@ async def log_request_details(request: Request, body: bytes = b"") -> CapturedRe
                 from urllib.parse import parse_qs
                 parsed_body = parse_qs(body.decode())
             elif "multipart/form-data" in content_type:
-                parsed_body = f"Multipart form data ({body_size} bytes)"
+                parsed_body = {}
+                fields = {}
+                files = {}
+
+                class g:
+                    field_name = b""
+                    file_name = b""
+                    content_type = b""
+                    data = b""
+
+                def on_header_field(data, start, end):
+                    g.field_name = data[start:end]
+
+                def on_header_value(data, start, end):
+                    if g.field_name == b'Content-Disposition':
+                        _, params = parse_options_header(data[start:end].decode())
+                        g.field_name = params.get(b'name', b'')
+                        g.file_name = params.get(b'filename', b'')
+                    elif g.field_name == b'Content-Type':
+                        g.content_type = data[start:end]
+
+                def on_part_data(data, start, end):
+                    g.data += data[start:end]
+
+                def on_part_end():
+                    if g.file_name:
+                        files[g.field_name.decode()] = {
+                            "filename": g.file_name.decode(),
+                            "content_type": g.content_type.decode(),
+                            "size": len(g.data),
+                            "data_preview": f"First 100 bytes: {g.data[:100].hex()}" if len(g.data) > 0 else "Empty file"
+                        }
+                    else:
+                        fields[g.field_name.decode()] = g.data.decode()
+                    
+                    g.field_name = b""
+                    g.file_name = b""
+                    g.content_type = b""
+                    g.data = b""
+
+                try:
+                    boundary_parts = content_type.split("boundary=")
+                    if len(boundary_parts) > 1:
+                        boundary = boundary_parts[1].strip('"').encode("utf-8")
+                        
+                        callbacks = {
+                            'on_header_field': on_header_field,
+                            'on_header_value': on_header_value,
+                            'on_part_data': on_part_data,
+                            'on_part_end': on_part_end
+                        }
+
+                        parser = MultipartParser(boundary, callbacks)
+                        parser.write(body)
+                        
+                        parsed_body = {"fields": fields, "files": files}
+
+                    else:
+                        parsed_body = f"Multipart form data ({body_size} bytes) - Boundary not found in Content-Type header"
+
+                except Exception as e:
+                    parsed_body = f"Error parsing multipart body: {str(e)} - Raw (first 200 chars): {body.decode(errors='ignore')[:200]}"
             elif "text/" in content_type:
                 parsed_body = body.decode()
             elif body_size > 1024:  # Large binary data
@@ -1799,7 +1863,7 @@ async def validate_webhook_signature(request_id: str, secret: str):
             if not req.is_webhook:
                 raise HTTPException(status_code=400, detail="Request is not a webhook")
             
-            validation_result = {
+            validation_result: Dict[str, Any] = {
                 "request_id": request_id,
                 "webhook_type": req.webhook_type,
                 "validation_attempted": True,
@@ -2105,4 +2169,4 @@ if __name__ == "__main__":
         port=8000, 
         log_level="info",
         access_log=True
-    )                     
+    )
